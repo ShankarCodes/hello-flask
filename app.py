@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request,redirect
 import pymongo 
 client = pymongo.MongoClient("mongodb+srv://shankar:whitey123@db-g15hj.mongodb.net/test?retryWrites=true&w=majority")
 db = client.data
@@ -7,11 +7,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def homepage():
+    return render_template('index.html')
+    
+@app.route('/add')
+def insert():
     data = dict(request.args)
     if data:
         collect.insert_one(data)
-    
-    return render_template('index.html')
+    return redirect('/data')
 @app.route('/data')
 def query():
     data = collect.find()
