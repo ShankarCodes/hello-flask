@@ -7,11 +7,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def homepage():
-    name = request.args.get('name')
-    collect.insert_one(dict(request.args))
-    if name is None:
-        name = "Somebody"
-    return render_template('index.html',ctx={'name':name})
+    data = dict(request.args)
+    if data:
+        pass#collect.insert_one(data)
+    
+    return render_template('index.html',ctx=data)
 
 if __name__=='__main__':
     app.run()

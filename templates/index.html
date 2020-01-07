@@ -1,8 +1,13 @@
 <html>
 <title>
-Exercise
+Shankar DataStore
 </title>
 <body>
-Hello {{ctx.name}}
+<h1>
+This is the data store
+</h1>
+{% for key,value in ctx.items() %}
+<h4>{{key}}:{{value}}</h4>
+{%endfor%}
 </body>
 </html>
