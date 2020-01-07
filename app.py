@@ -9,7 +9,7 @@ app = Flask(__name__)
 def homepage():
     data = dict(request.args)
     if data:
-        pass#collect.insert_one(data)
+        collect.insert_one(data)
     
     return render_template('index.html',ctx=data)
 
@@ -17,3 +17,8 @@ if __name__=='__main__':
     app.run()
 
 #git push heroku master
+"""
+{% for key,value in ctx.items() %}
+<h4>{{key}}:{{value}}</h4>
+{%endfor%}
+"""

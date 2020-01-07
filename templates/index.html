@@ -6,8 +6,10 @@ Shankar DataStore
 <h1>
 This is the data store
 </h1>
-{% for key,value in ctx.items() %}
-<h4>{{key}}:{{value}}</h4>
-{%endfor%}
+<form action='/' method='GET'>
+<label>Stepups </label><input type='number' name='stepup'></input>
+<label>Pushups </label><input type='text' name='pushup'></input>
+<input type='submit'>
+</form>
 </body>
 </html>
