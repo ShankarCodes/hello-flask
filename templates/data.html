@@ -1,0 +1,14 @@
+<html>
+<title>
+Shankar DataStore
+</title>
+<body>
+<h1>
+{%for dic in ctx%}
+{%for key,value in dic.items()%}
+<h4>{{key}} {{value}}</h4>
+{%endfor%}
+{%endfor%}
+</h1>
+</body>
+</html>

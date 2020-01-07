@@ -11,8 +11,15 @@ def homepage():
     if data:
         collect.insert_one(data)
     
-    return render_template('index.html',ctx=data)
-
+    return render_template('index.html')
+@app.route('/data')
+def query():
+    data = collect.find()
+    dt = []
+    for cnt in data:
+        cnt.pop('_id')
+        dt = dt + [cnt]
+    return render_template('data.html',ctx = dt)
 if __name__=='__main__':
     app.run()
 
